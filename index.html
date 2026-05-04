@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLM Holding | Venture Studio Bolivia</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dlm: {
+                            dark: '#0a0a0a',     // Almost black
+                            slate: '#171717',    // Neutral 900
+                            gray: '#262626',     // Neutral 800
+                            blue: '#3b82f6',     // Blue 500
+                            blueHover: '#2563eb',// Blue 600
+                            gold: '#fbbf24',     // Amber 400
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-gradient-blue {
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-mesh {
+            background-color: #0a0a0a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.1) 0px, transparent 50%);
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #3b82f6;
+        }
+        .portfolio-image {
+            transition: transform 0.7s ease;
+        }
+        .group:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans bg-dlm-dark text-gray-300 antialiased selection:bg-dlm-blue selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-dlm-dark/80 backdrop-blur-lg border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 cursor-pointer flex flex-col justify-center" onclick="window.scrollTo(0,0)">
+                    <span class="font-heading font-bold text-3xl text-white tracking-tighter leading-none">DLM <span class="text-dlm-blue">HOLDING</span></span>
+                    <span class="text-xs text-gray-400 font-medium tracking-widest uppercase mt-1">Venture Studio Bolivia</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#filosofia" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Nuestra Filosofía</a>
+                    <a href="#modelo" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">El Modelo Studio</a>
+                    <a href="#portafolio" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Ecosistema</a>
+                    <a href="#unete" class="text-sm font-medium text-dlm-blue hover:text-white transition-colors">Para Startups</a>
+                    <a href="#contacto" class="border border-dlm-blue text-dlm-blue hover:bg-dlm-blue hover:text-white font-medium py-2 px-6 rounded transition-all duration-300">
+                        Inversores
+                    </a>
+                </div>
+                <!-- Mobile menu -->
+                <div class="md:hidden flex items-center">
+                    <i class="fas fa-bars text-2xl text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-mesh min-h-[90vh] flex items-center">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800 border border-gray-700 text-gray-300 text-sm font-medium mb-8">
+                    <span class="flex h-2 w-2 rounded-full bg-dlm-blue mr-2"></span>
+                    Creando e impulsando las empresas del mañana, hoy.
+                </div>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-tight">
+                    No solo invertimos en ideas.<br>
+                    <span class="text-gradient-blue">Construimos empresas.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 font-light mb-10 max-w-3xl leading-relaxed">
+                    DLM Holding es el <strong>Venture Studio</strong> pionero en Bolivia. Desarrollamos startups desde cero y nos asociamos con fundadores excepcionales, proveyendo capital, infraestructura operativa y un ecosistema de clientes para escalar industrias rentables.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#modelo" class="bg-dlm-blue hover:bg-dlm-blueHover text-white font-medium text-lg py-4 px-8 rounded transition-all duration-300 text-center">
+                        Descubre Nuestro Modelo
+                    </a>
+                    <a href="#unete" class="bg-transparent border border-gray-600 hover:border-gray-400 text-white font-medium text-lg py-4 px-8 rounded transition-all duration-300 text-center flex items-center justify-center">
+                        Postula tu Empresa <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Filosofía (Inspirado en IdeaLab) -->
+    <section id="filosofia" class="py-24 bg-dlm-slate border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">La fábrica de la <span class="text-dlm-blue">innovación</span></h2>
+                    <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                        Inspirados en los grandes laboratorios de ideas globales, en DLM Holding sabemos que una visión brillante no es suficiente sin una ejecución implacable, estructura y recursos compartidos.
+                    </p>
+                    <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+                        A diferencia del capital de riesgo tradicional que solo inyecta dinero en empresas externas y espera a ver qué pasa, <strong>nosotros actuamos como co-fundadores</strong>. Identificamos oportunidades masivas, ensamblamos equipos propios o integramos a startups prometedoras a nuestra matriz compartiendo una infraestructura operativa central.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-800">
+                        <div>
+                            <div class="text-4xl font-heading font-bold text-white mb-2">4</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-wide">Industrias Clave</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-heading font-bold text-white mb-2">100%</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-wide">Back-office Integrado</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-dlm-blue opacity-20 blur-[100px] rounded-full"></div>
+                    <div class="bg-dlm-gray p-8 rounded-2xl border border-gray-700 relative z-10 shadow-2xl">
+                        <i class="fas fa-quote-left text-4xl text-gray-600 mb-6"></i>
+                        <p class="text-2xl text-white font-heading font-light leading-snug mb-8">
+                            "Construir empresas es difícil. La mayoría fracasa por quedarse sin liquidez o por fricciones burocráticas. Nuestro modelo Studio elimina esos obstáculos proveyendo el 'Unfair Advantage' desde el día uno."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center border-2 border-dlm-blue text-xl font-bold text-white">
+                                DLM
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-white font-bold">Directorio Ejecutivo</div>
+                                <div class="text-gray-500 text-sm">Venture Studio Bolivia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Modelo Studio (Cómo Funciona) -->
+    <section id="modelo" class="py-24 bg-dlm-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="font-heading text-sm font-bold text-dlm-blue uppercase tracking-widest mb-3">Metodología Comprobada</h2>
+                <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Sistematizamos el éxito</h3>
+                <p class="text-gray-400 text-lg">Ya sea creando desde un papel en blanco o integrando una startup existente a nuestro ecosistema, este es nuestro motor de crecimiento.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Paso 1 -->
+                <div class="feature-card bg-dlm-slate p-8 rounded-xl border border-gray-800 transition-all duration-300 hover:border-gray-600">
+                    <div class="text-dlm-gray font-heading font-bold text-6xl absolute top-4 right-6 opacity-50 z-0">1</div>
+                    <div class="relative z-10">
+                        <i class="fas fa-lightbulb text-3xl text-gray-400 mb-6 feature-icon transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Ideación & Scouting</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Generamos soluciones a problemas masivos o identificamos a empresas nacientes (Startups) que ya tengan una propuesta de valor validada y encajen en nuestras 4 matrices.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="feature-card bg-dlm-slate p-8 rounded-xl border border-gray-800 transition-all duration-300 hover:border-gray-600">
+                    <div class="text-dlm-gray font-heading font-bold text-6xl absolute top-4 right-6 opacity-50 z-0">2</div>
+                    <div class="relative z-10">
+                        <i class="fas fa-users-gear text-3xl text-gray-400 mb-6 feature-icon transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Co-Fundación & Equipo</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Designamos a "Managing Partners" para nuestras ideas propias, o nos asociamos formalmente con los fundadores externos bajo un modelo de participación por resultados (Equity).</p>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="feature-card bg-dlm-slate p-8 rounded-xl border border-gray-800 transition-all duration-300 hover:border-gray-600">
+                    <div class="text-dlm-gray font-heading font-bold text-6xl absolute top-4 right-6 opacity-50 z-0">3</div>
+                    <div class="relative z-10">
+                        <i class="fas fa-layer-group text-3xl text-gray-400 mb-6 feature-icon transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Back-Office Centralizado</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">El Holding asume el marketing, lo legal, la contabilidad y RRHH. Las empresas no pierden tiempo en burocracia, se enfocan al 100% en desarrollar y vender su producto.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="feature-card bg-dlm-slate p-8 rounded-xl border border-gray-800 transition-all duration-300 hover:border-gray-600">
+                    <div class="text-dlm-gray font-heading font-bold text-6xl absolute top-4 right-6 opacity-50 z-0">4</div>
+                    <div class="relative z-10">
+                        <i class="fas fa-rocket text-3xl text-gray-400 mb-6 feature-icon transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Sinergia & Escalabilidad</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Inyectamos capital semilla. Inmediatamente, la nueva empresa se integra a nuestro ecosistema y comienza a comprar/vender servicios a las otras filiales del Holding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Portafolio (Las 4 Matrices) -->
+    <section id="portafolio" class="py-24 bg-dlm-slate border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="max-w-2xl">
+                    <h2 class="font-heading text-sm font-bold text-dlm-blue uppercase tracking-widest mb-3">Nuestras Matrices</h2>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-4">El Ecosistema Activo</h3>
+                    <p class="text-gray-400 text-lg">Cuatro industrias interconectadas diseñadas para dominar el mercado nacional y nutrirse mutuamente.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Tech -->
+                <div class="group bg-dlm-dark rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-colors">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-blue-900/40 mix-blend-multiply z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80" alt="Tecnología y Software" class="w-full h-full object-cover portfolio-image opacity-60">
+                        <div class="absolute bottom-4 left-6 z-20">
+                            <i class="fas fa-laptop-code text-3xl text-blue-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-3">DLM Tech & Software</h4>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-3">Desarrollo de soluciones tecnológicas integrales B2B, integración de Inteligencia Artificial y creación de plataformas propias con modelos de suscripción recurrente (SaaS).</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Apps Nativas</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">SaaS</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">AI Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Educación -->
+                <div class="group bg-dlm-dark rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-colors">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-purple-900/40 mix-blend-multiply z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80" alt="Educación Avanzada" class="w-full h-full object-cover portfolio-image opacity-60">
+                        <div class="absolute bottom-4 left-6 z-20">
+                            <i class="fas fa-user-graduate text-3xl text-purple-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-3">DLM Education Hub</h4>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-3">El motor de talento del Holding. Proveemos certificaciones técnicas de rápida inserción laboral y bootcamps avanzados para formar a la próxima generación de creadores.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">EdTech</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Bootcamps</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">B2B Training</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Estate -->
+                <div class="group bg-dlm-dark rounded-xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-colors">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-emerald-900/40 mix-blend-multiply z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80" alt="Real Estate" class="w-full h-full object-cover portfolio-image opacity-60">
+                        <div class="absolute bottom-4 left-6 z-20">
+                            <i class="fas fa-building text-3xl text-emerald-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-3">DLM Real Estate</h4>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-3">Gestión estratégica de activos inmobiliarios. Nos enfocamos en corretaje comercial, proyectos de flipping inteligente y habilitación de espacios para la economía colaborativa.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">PropTech</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Asset Management</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Flipping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FoodTech -->
+                <div class="group bg-dlm-dark rounded-xl overflow-hidden border border-gray-800 hover:border-orange-500/50 transition-colors">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-orange-900/40 mix-blend-multiply z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef71a3f5e48d?auto=format&fit=crop&q=80" alt="FoodTech" class="w-full h-full object-cover portfolio-image opacity-60">
+                        <div class="absolute bottom-4 left-6 z-20">
+                            <i class="fas fa-leaf text-3xl text-orange-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-3">DLM FoodTech</h4>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-3">Innovación en la producción alimentaria. Utilizamos sistemas hidropónicos de ciclo rápido y liofilización para crear y distribuir productos saludables de consumo masivo.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">AgriTech</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Retail</span>
+                            <span class="text-xs font-medium bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700">Smart Farming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Para Empresas / Startups Externas -->
+    <section id="unete" class="py-24 bg-dlm-blue relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-widest mb-6 border border-white/30">
+                        Convocatoria Abierta
+                    </div>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        ¿Tienes una empresa o una idea disruptiva? <span class="text-dlm-dark">Únete al Studio.</span>
+                    </h2>
+                    <p class="text-xl text-white/90 mb-8 font-light">
+                        No solo creamos internamente; <strong>buscamos a los mejores fundadores</strong> y startups que operen en Tecnología, Educación, Inmobiliaria o FoodTech para acelerarlos bajo el paraguas de DLM Holding.
+                    </p>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-white text-dlm-blue flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Inyección de Capital</h4>
+                                <p class="text-white/80 text-sm">Financiamos las etapas semilla para acelerar tu tracción sin descapitalizarte.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-white text-dlm-blue flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">El "Unfair Advantage"</h4>
+                                <p class="text-white/80 text-sm">Cero gastos en oficina, abogados o contadores. Te damos toda la infraestructura gratis para que te enfoques en el producto.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-white text-dlm-blue flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Sinergia Garantizada</h4>
+                                <p class="text-white/80 text-sm">Al integrarte, las otras empresas del holding se convierten inmediatamente en tus primeros clientes institucionales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-dlm-dark p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-800">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-6 text-center">Aplica a DLM Studio</h3>
+                        <p class="text-gray-400 text-sm text-center mb-8">Envíanos un resumen de tu startup, equipo o tracción. Si haces match con nuestras 4 matrices, te invitaremos a un pitch privado.</p>
+                        <form id="startupForm" class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Nombre de tu Startup / Empresa" required class="w-full bg-dlm-slate border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="Tu Nombre" required class="w-full bg-dlm-slate border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors">
+                                <input type="email" placeholder="Correo" required class="w-full bg-dlm-slate border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors">
+                            </div>
+                            <div>
+                                <select required class="w-full bg-dlm-slate border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors appearance-none">
+                                    <option value="" disabled selected>Industria a la que perteneces</option>
+                                    <option value="tech">Tecnología y Software (SaaS/Apps)</option>
+                                    <option value="edtech">Educación (EdTech)</option>
+                                    <option value="proptech">Bienes Raíces (PropTech)</option>
+                                    <option value="foodtech">Alimentos / Agronomía (FoodTech)</option>
+                                    <option value="other">Otra con alto potencial</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea placeholder="Describe brevemente tu solución y tracción actual (Enlace a Pitch Deck opcional)" rows="3" required class="w-full bg-dlm-slate border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-white hover:bg-gray-200 text-dlm-dark font-bold py-4 rounded-lg transition-colors mt-2 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                                Enviar Aplicación <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventaja Competitiva / Inversores CTA -->
+    <section id="contacto" class="py-24 bg-dlm-dark relative overflow-hidden">
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-[800px] h-[800px] bg-dlm-blue/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gradient-to-br from-dlm-slate to-dlm-dark border border-gray-700 rounded-3xl p-8 md:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Inversores: <span class="text-gradient-blue">Únete al Holding</span></h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Nuestra estructura de Venture Studio ofrece a los inversores ángeles e institucionales algo único: <strong>diversificación instantánea</strong>. Al invertir en DLM Holding, adquieres participación en todo un ecosistema de empresas, con riesgo mitigado operativamente.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-dlm-blue mr-3"></i> Tasa preferencial garantizada para pioneros (Ronda Semilla).
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-dlm-blue mr-3"></i> Reparto de utilidades proyectado desde el Mes 6 de operaciones.
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-dlm-blue mr-3"></i> Transparencia total mediante Back-office centralizado y auditado.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-dlm-gray/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-600">
+                        <h3 class="text-xl font-bold text-white mb-6 font-heading">Contacto para Inversores</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Nombre o Entidad" required class="w-full bg-dlm-dark border border-gray-600 rounded px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Correo Electrónico" required class="w-full bg-dlm-dark border border-gray-600 rounded px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors">
+                            </div>
+                            <div>
+                                <select class="w-full bg-dlm-dark border border-gray-600 rounded px-4 py-3 text-white focus:outline-none focus:border-dlm-blue transition-colors appearance-none" required>
+                                    <option value="" disabled selected>Selecciona tu Ticket de Interés</option>
+                                    <option value="1k">Ticket Inicial (1.000 Bs)</option>
+                                    <option value="5k">Ticket Plata (5.000 Bs)</option>
+                                    <option value="10k">Ticket Oro (10.000 Bs) - Recomendado</option>
+                                    <option value="25k">Ticket Platino (25.000+ Bs)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-dlm-blue hover:bg-dlm-blueHover text-white font-medium py-4 rounded transition-colors mt-4">
+                                Solicitar Term Sheet (Documentación)
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dlm-dark border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex-shrink-0 flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
+                    <span class="font-heading font-bold text-2xl text-white tracking-tighter">DLM <span class="text-dlm-blue">HOLDING</span></span>
+                    <span class="text-xs text-gray-500 font-medium tracking-widest uppercase">Venture Studio Bolivia</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm text-center md:text-left">
+                    &copy; 2024 DLM Holding. Todos los derechos reservados. Construyendo el ecosistema del futuro en Bolivia.
+                </p>
+                <div class="flex space-x-4 mt-4 md:mt-0 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Términos Legales</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-dlm-dark/95');
+                nav.classList.remove('bg-dlm-dark/80');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-dlm-dark/95');
+                nav.classList.add('bg-dlm-dark/80');
+            }
+        });
+
+        // Universal Form handling function
+        function handleFormSubmit(formId, buttonText) {
+            document.getElementById(formId).addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                const originalClasses = btn.className;
+                
+                btn.innerText = 'Enviando...';
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+                
+                setTimeout(() => {
+                    btn.innerText = buttonText;
+                    btn.className = 'w-full font-bold py-4 rounded-lg transition-colors mt-2 bg-green-600 hover:bg-green-700 text-white';
+                    
+                    setTimeout(() => {
+                        this.reset();
+                        btn.innerHTML = originalText;
+                        btn.className = originalClasses;
+                    }, 4000);
+                }, 1000);
+            });
+        }
+
+        // Initialize both forms
+        handleFormSubmit('contactForm', '¡Solicitud Recibida!');
+        handleFormSubmit('startupForm', '¡Aplicación Recibida!');
+    </script>
+</body>
+</html>
