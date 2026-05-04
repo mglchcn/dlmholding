@@ -472,40 +472,12 @@
         </div>
     </footer>
 
-    <!-- Firebase Integration Scripts -->
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        let db;
-        let appId;
-
-        // Initialize Firebase securely via Canvas configuration
-        async function initFirebase() {
-            try {
-                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-                
-                const app = initializeApp(firebaseConfig);
-                const auth = getAuth(app);
-                db = getFirestore(app);
-
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                console.log("Sistema de almacenamiento en la nube conectado exitosamente.");
-            } catch (error) {
-                console.error("Error conectando a la base de datos:", error);
-            }
-        }
-
-        // Call init immediately
-        initFirebase();
-
+    <!-- Google Sheets Integration Scripts -->
+    <script>
+        // ======= CONFIGURACIÓN GOOGLE SHEETS =======
+        // Reemplaza esta URL con la que te genere Google Apps Script
+        const GOOGLE_SCRIPT_URL = "LA_URL_DE_TU_GOOGLE_APPS_SCRIPT_AQUI"; 
+        
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
@@ -518,8 +490,8 @@
             }
         });
 
-        // Function to handle forms and send data to Firebase Firestore
-        function attachFirebaseSubmit(formId, successText, collectionName, getDataCallback) {
+        // Función para enviar datos a Google Sheets
+        function attachGoogleSheetsSubmit(formId, successText, formType, getDataCallback) {
             document.getElementById(formId).addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const btn = this.querySelector('button[type="submit"]');
@@ -530,23 +502,31 @@
                 btn.classList.add('opacity-75', 'cursor-not-allowed');
                 btn.disabled = true;
 
-                if (!db) {
-                    btn.innerText = 'Error de conexión. Intente luego.';
-                    btn.classList.add('bg-red-600', 'text-white');
-                    setTimeout(resetBtn, 3000);
+                if (GOOGLE_SCRIPT_URL === "LA_URL_DE_TU_GOOGLE_APPS_SCRIPT_AQUI") {
+                    alert("Aviso: Falta colocar la URL del Google Script en el código HTML.");
+                    resetBtn();
                     return;
                 }
                 
                 try {
-                    // Gather form data and add server timestamp
+                    // Recopilar datos
                     const payload = getDataCallback();
-                    payload.createdAt = serverTimestamp();
+                    payload.formType = formType; // Identificador para Apps Script
 
-                    // Save to Firestore collection based on Strict Canvas Paths
-                    const colRef = collection(db, 'artifacts', appId, 'public', 'data', collectionName);
-                    await addDoc(colRef, payload);
+                    // Crear FormData para enviar
+                    const formData = new FormData();
+                    for (const key in payload) {
+                        formData.append(key, payload[key]);
+                    }
 
-                    // Show success
+                    // Enviar petición (usando no-cors para evitar bloqueos del navegador en Apps Script)
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    });
+
+                    // Éxito
                     btn.innerText = successText;
                     btn.className = 'w-full font-bold py-4 rounded-lg transition-colors mt-2 bg-green-600 hover:bg-green-700 text-white';
                     
@@ -556,7 +536,7 @@
                     }, 4000);
 
                 } catch (error) {
-                    console.error("Error al guardar:", error);
+                    console.error("Error al enviar a Google Sheets:", error);
                     btn.innerText = 'Error al enviar. Reintente.';
                     btn.className = 'w-full font-bold py-4 rounded-lg transition-colors mt-2 bg-red-600 text-white';
                     setTimeout(resetBtn, 3000);
@@ -570,8 +550,8 @@
             });
         }
 
-        // Attach to "Contacto Inversores" Form
-        attachFirebaseSubmit('contactForm', '¡Solicitud Recibida!', 'investors', () => {
+        // 1. Configurar Formulario Inversores
+        attachGoogleSheetsSubmit('contactForm', '¡Solicitud Recibida!', 'investor', () => {
             return {
                 name: document.getElementById('inv_name').value,
                 email: document.getElementById('inv_email').value,
@@ -579,8 +559,8 @@
             };
         });
 
-        // Attach to "Aplicación de Startups" Form
-        attachFirebaseSubmit('startupForm', '¡Aplicación Recibida!', 'startups', () => {
+        // 2. Configurar Formulario Startups
+        attachGoogleSheetsSubmit('startupForm', '¡Aplicación Recibida!', 'startup', () => {
             return {
                 companyName: document.getElementById('su_company').value,
                 founderName: document.getElementById('su_name').value,
